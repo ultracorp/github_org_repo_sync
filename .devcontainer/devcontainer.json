@@ -1,0 +1,18 @@
+{
+  "name": "Rust Development Container",
+  "image": "rust:latest",
+  "features": {
+    "docker-in-docker": "latest"
+  },
+  "postCreateCommand": "apt-get update && apt-get install -y libssl-dev pkg-config && cargo build",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    "rust-lang.rust"
+  ],
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ],
+  "workspaceFolder": "/workspace"
+}
